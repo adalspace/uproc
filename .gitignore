@@ -3,4 +3,6 @@ lib/
 nob
 compile_commands.json
 *.a
+*.so
 *.socket
+*.o
