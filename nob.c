@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
     nob_cc_inputs(&cmd, SOURCE_FOLDER"/main.c");
     cmd_link_uipc(&cmd);
     cmd_local_lib(&cmd);
-    cmd_append(&cmd, "-luproc");
+    cmd_append(&cmd, "-l:libuproc.a");
     if (!cmd_run(&cmd)) return 1;
 
     return 0;
