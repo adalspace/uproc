@@ -1,4 +1,6 @@
 build/
+lib/
+nob
 compile_commands.json
 *.a
 *.socket
