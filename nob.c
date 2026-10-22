@@ -63,9 +63,16 @@ int main(int argc, char **argv) {
     nob_cc_output(&cmd, BUILD_FOLDER"/server");
     cmd_custom_cflags(&cmd);
     nob_cc_inputs(&cmd, SOURCE_FOLDER"/main.c");
-    cmd_link_uipc(&cmd);
     cmd_local_lib(&cmd);
     cmd_append(&cmd, "-l:libuproc.a");
+    cmd_link_uipc(&cmd);
+    if (!cmd_run(&cmd)) return 1;
+
+    // rm ./server.socket
+    delete_file("./server.socket");
+
+    // run build/server
+    cmd_append(&cmd, "./build/server");
     if (!cmd_run(&cmd)) return 1;
 
     return 0;
